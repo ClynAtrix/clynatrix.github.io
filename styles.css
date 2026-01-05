@@ -1,0 +1,223 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --ink: #0f172a;
+  --muted: #cbd5e1;
+  --card: rgba(255, 255, 255, 0.08);
+  --stroke: rgba(255, 255, 255, 0.12);
+  --accent: #7dd3fc;
+  --accent-strong: #38bdf8;
+  --bg: #0b1224;
+  --highlight: #c084fc;
+  font-family: 'Space Grotesk', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at 10% 20%, rgba(120, 119, 198, 0.28), transparent 30%),
+              radial-gradient(circle at 80% 0%, rgba(56, 189, 248, 0.24), transparent 30%),
+              radial-gradient(circle at 50% 80%, rgba(192, 132, 252, 0.18), transparent 30%),
+              var(--bg);
+  color: #e2e8f0;
+  display: grid;
+  place-items: center;
+  padding: 64px 24px;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: -2;
+}
+
+.backdrop .halo {
+  position: absolute;
+  inset: 0;
+  background: conic-gradient(from 120deg, rgba(56, 189, 248, 0.4), rgba(192, 132, 252, 0.1), rgba(56, 189, 248, 0.5));
+  filter: blur(120px);
+  opacity: 0.5;
+}
+
+.backdrop .grain {
+  position: absolute;
+  inset: -50%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='1600' viewBox='0 0 1600 1600'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+  mix-blend-mode: screen;
+  opacity: 0.4;
+  transform: scale(1.1);
+}
+
+main {
+  max-width: 1040px;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--stroke);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+  border-radius: 20px;
+  padding: 32px 28px 28px;
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.35);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.mark {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 14px 30px rgba(56, 189, 248, 0.25);
+  overflow: hidden;
+}
+
+.mark img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #e2e8f0;
+}
+
+.tag::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #34d399, #10b981);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.9);
+}
+
+.hero h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  margin-bottom: 14px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.hero .lede {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #dbeafe;
+  max-width: 720px;
+  margin-bottom: 22px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.primary,
+.ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 120ms ease, box-shadow 160ms ease, background 160ms ease, color 160ms ease;
+  border: 1px solid transparent;
+}
+
+.primary {
+  background: linear-gradient(135deg, var(--accent-strong), var(--highlight));
+  color: #0b1224;
+  box-shadow: 0 16px 40px rgba(56, 189, 248, 0.35);
+}
+
+.primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 22px 48px rgba(56, 189, 248, 0.45);
+}
+
+.ghost {
+  color: #e2e8f0;
+  border-color: var(--stroke);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.ghost:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.cards article {
+  padding: 16px 18px;
+  border: 1px solid var(--stroke);
+  border-radius: 14px;
+  background: var(--card);
+}
+
+.cards h2 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.cards p {
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+footer {
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid var(--stroke);
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 36px 18px;
+  }
+
+  main {
+    padding: 24px 20px 20px;
+  }
+
+  header {
+    margin-bottom: 24px;
+  }
+}

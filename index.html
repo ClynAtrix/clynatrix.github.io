@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clynatrix | Launching Soon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="logo_v5.png">
+</head>
+<body>
+  <div class="backdrop">
+    <div class="halo"></div>
+    <div class="grain"></div>
+  </div>
+
+  <main>
+    <header>
+      <div class="mark">
+        <img src="logo_v5.png" alt="Clynatrix logo">
+      </div>
+      <div class="meta">
+        <span class="eyebrow">Clynatrix</span>
+        <span class="tag">Launching Soon</span>
+      </div>
+    </header>
+
+    <section class="hero">
+      <h1>Precision meets clarity.</h1>
+      <p class="lede">We are crafting something focused, fast, and thoughtfully engineered. Be the first to know when we open the doors.</p>
+      <div class="actions">
+        <a class="primary" href="mailto:hello@clynatrix.com?subject=Keep%20me%20posted">Notify me</a>
+        <a class="ghost" href="https://www.linkedin.com" target="_blank" rel="noreferrer">Follow along</a>
+      </div>
+    </section>
+
+    <section class="cards">
+      <article>
+        <h2>Built for clarity</h2>
+        <p>Minimal noise, intentional design, and the details that matter to keep you focused.</p>
+      </article>
+      <article>
+        <h2>Fast by default</h2>
+        <p>Performance-first experiences so you never wait on what you need.</p>
+      </article>
+      <article>
+        <h2>Human support</h2>
+        <p>A real team behind the product, ready to help from day one.</p>
+      </article>
+    </section>
+
+    <footer>
+      <span>&copy; <span id="year"></span> Clynatrix. All rights reserved.</span>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
